@@ -1,12 +1,13 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import NetworkBackground from "./NetworkBackground";
 import TypingText from "./TypingText";
 import MagneticButton from "./MagneticButton";
 
-export default function Hero() {
+const Hero: React.FC = () => {
   return (
     <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-28 pb-16 sm:px-10 lg:px-16">
       <div className="absolute inset-0">
@@ -22,31 +23,30 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-edge bg-surface/60 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-ash"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-edge bg-surface/60 px-4 py-1.5 font-mono text-xs uppercase tracking-wider text-muted backdrop-blur"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full bg-signal" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
             </span>
-            Open to opportunities
+            Available for collaborations
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-balance text-4xl font-bold leading-tight text-fog sm:text-5xl lg:text-6xl"
+            className="text-4xl font-bold tracking-tight text-text sm:text-6xl lg:text-7xl"
           >
-            Arnav Kshirsagar
+            Hi, I&apos;m <span className="text-accent">Arnav</span>
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-4 h-8 font-mono text-lg text-signal sm:text-xl"
+            className="mt-4 h-12 text-xl font-medium text-muted sm:text-2xl"
           >
-            <span className="text-ash">$ whoami --role </span>
             <TypingText />
           </motion.div>
 
@@ -54,99 +54,53 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mx-auto mt-6 max-w-xl text-balance text-base leading-relaxed text-ash lg:mx-0"
+            className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
           >
-            Building secure systems and exploring networks, one commit at a
-            time — currently leading a team through the Smart India
-            Hackathon.
+            B.Tech Computer Science student specializing in secure systems,
+            Python development, and exploring modern AI architectures.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
+            className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
           >
-            <MagneticButton href="#about">
-              View my work
-              <svg
-                aria-hidden="true"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              >
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <MagneticButton href="#projects" variant="primary">
+              View Work
             </MagneticButton>
-            
-              href="#footer"
-              className="font-mono text-sm text-ash underline decoration-edge underline-offset-4 transition-colors hover:text-signal"
-            >
-              get in touch →
-            </a>
+            <MagneticButton href="#contact" variant="secondary">
+              Get in Touch
+            </MagneticButton>
           </motion.div>
         </div>
 
-        {/* Floating profile picture */}
+        {/* Floating Avatar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative shrink-0"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative flex items-center justify-center"
         >
           <motion.div
-            animate={{ y: [0, -18, 0] }}
-            transition={{
-              duration: 4.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="relative h-56 w-56 sm:h-72 sm:w-72"
+            animate={{ y: [-8, 8, -8] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative h-64 w-64 rounded-full border border-edge bg-surface/80 p-2 shadow-2xl backdrop-blur sm:h-80 sm:w-80"
           >
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-signal/40 via-pulse/30 to-transparent blur-2xl" />
-            <div className="absolute inset-0 rounded-full border border-edge bg-surface p-1.5">
-              <div className="relative h-full w-full overflow-hidden rounded-full border border-signal/30">
-                <Image
-                  src="/profile-placeholder.svg"
-                  alt="Placeholder profile portrait — replace with your own photo"
-                  fill
-                  sizes="(min-width: 640px) 288px, 224px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
+            <div className="relative h-full w-full overflow-hidden rounded-full border border-edge/60 bg-surface">
+              <Image
+                src="/profile-placeholder.svg"
+                alt="Arnav Kshirsagar"
+                fill
+                priority
+                className="object-cover"
+              />
             </div>
           </motion.div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.9 }}
-        className="relative z-10 mx-auto mt-16 flex flex-col items-center gap-2 text-ash"
-      >
-        <span className="font-mono text-[11px] uppercase tracking-[0.3em]">
-          scroll
-        </span>
-        <motion.span
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          className="block h-8 w-[1px] bg-gradient-to-b from-signal to-transparent"
-        />
-      </motion.div>
     </section>
   );
-}
-         
-              
-                  
-                
+};
+
+export default Hero;
