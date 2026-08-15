@@ -66,6 +66,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
           >
+            {/* The variants have been removed here to fix the error */}
             <MagneticButton href="#projects">
               View Work
             </MagneticButton>
