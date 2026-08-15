@@ -66,10 +66,10 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
           >
-            <MagneticButton href="#projects" variant="primary">
+            <MagneticButton href="#projects">
               View Work
             </MagneticButton>
-            <MagneticButton href="#contact" variant="secondary">
+            <MagneticButton href="#contact">
               Get in Touch
             </MagneticButton>
           </motion.div>
