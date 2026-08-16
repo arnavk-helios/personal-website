@@ -90,12 +90,13 @@ const Hero: React.FC = () => {
           >
             <div className="relative h-full w-full overflow-hidden rounded-full border border-edge/60 bg-surface">
               <Image
-                src="/profile-placeholder.svg"
-                alt="Arnav Kshirsagar"
-                fill
-                priority
-                className="object-cover"
-              />
+  src="/arnavkshirsagar.jpeg"
+  alt="Arnav Kshirsagar"
+  fill
+  sizes="(min-width: 640px) 288px, 224px"
+  className="object-cover"
+  priority
+/>
             </div>
           </motion.div>
         </motion.div>
