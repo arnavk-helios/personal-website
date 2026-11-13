@@ -8,24 +8,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#090C10",
-        surface: "#0F141C",
-        "surface-2": "#161C26",
-        edge: "#232C39",
-        signal: {
-          DEFAULT: "#2FF3D0",
-          dim: "#1FA88F",
-        },
-        pulse: {
-          DEFAULT: "#8B7CFF",
-          dim: "#5F52B8",
-        },
-        ash: "#7C8798",
-        fog: "#E7ECF2",
+        coal: "#252525",
+        panel: "#2F2F2F",
+        stone: "#474744",
+        cream: "#E8E8C6",
+        lime: "#A6F04D",
+        shu: "#E8483B",
+        sakura: "#F7B2C0",
       },
       fontFamily: {
-        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
-        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "monospace"],
+        body: ["var(--font-body)", "ui-monospace", "monospace"],
+        jp: ["var(--font-jp)", "var(--font-body)", "sans-serif"],
       },
       keyframes: {
         marquee: {
@@ -36,17 +30,16 @@ const config: Config = {
           "0%, 49%": { opacity: "1" },
           "50%, 100%": { opacity: "0" },
         },
-        "pulse-ring": {
-          "0%": { transform: "scale(0.9)", opacity: "0.7" },
-          "70%": { transform: "scale(1.4)", opacity: "0" },
-          "100%": { transform: "scale(1.4)", opacity: "0" },
+        shimmer: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
         },
       },
       animation: {
-        marquee: "marquee 28s linear infinite",
-        "marquee-slow": "marquee 42s linear infinite",
+        marquee: "marquee 32s linear infinite",
+        "marquee-slow": "marquee 48s linear infinite",
         blink: "blink 1s step-start infinite",
-        "pulse-ring": "pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        shimmer: "shimmer 4s linear infinite",
       },
     },
   },
