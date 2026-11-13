@@ -1,87 +1,74 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
+import PixelTorii from "./PixelTorii";
 
-const FACTS = [
-  { label: "role", value: "B.Tech CSE Student" },
-  { label: "team", value: "HACKHORIZON_STR" },
-  { label: "event", value: "Smart India Hackathon" },
-  { label: "focus", value: "Networking & Secure Systems" },
+const PLAYER = [
+  { jp: "名前", en: "name", value: "Arnav Kshirsagar" },
+  { jp: "専攻", en: "major", value: "B.Tech Computer Science & Engineering" },
+  { jp: "所属", en: "clubs", value: "Kryptonex Technical Club · Google Developer Group" },
+  { jp: "チーム", en: "team", value: "HACKHORIZON_STR (Smart India Hackathon)" },
+  { jp: "拠点", en: "base", value: "Pune, India" },
+  { jp: "目標", en: "goal", value: "Internship in Japan" },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative px-6 py-28 sm:px-10 lg:px-16">
-      <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-        <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-signal">
-            01 · About
-          </p>
-          <h2 className="mt-4 text-3xl font-bold text-fog sm:text-4xl">
-            Who I am
-          </h2>
-          <p className="mt-6 max-w-md text-balance leading-relaxed text-ash">
-            I&apos;m Arnav Kshirsagar, a B.Tech Computer Science and
-            Engineering student who likes taking systems apart to understand
-            how they fail — and then building them to not fail. I spend most
-            of my time between code, networks, and whatever the next
-            hackathon throws at me.
-          </p>
-          <p className="mt-4 max-w-md text-balance leading-relaxed text-ash">
-            I currently lead{" "}
-            <span className="text-fog">Team HACKHORIZON_STR</span> as Team
-            Leader for the{" "}
-            <span className="text-fog">Smart India Hackathon</span>, where
-            I coordinate scope, architecture, and delivery under a hard
-            clock. Outside of that, I&apos;m drawn to open-source
-            networking projects and secure-systems design — the kind of
-            problems where a small oversight has a very loud consequence.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="relative"
-        >
-          <div className="rounded-2xl border border-edge bg-surface/60 p-6 font-mono text-sm shadow-[0_0_60px_-15px_rgba(47,243,208,0.15)] backdrop-blur-sm sm:p-8">
-            <div className="mb-5 flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
-              <span className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
-              <span className="h-3 w-3 rounded-full bg-[#28C840]" />
-              <span className="ml-3 text-xs text-ash">profile.json</span>
-            </div>
-            <dl className="space-y-3">
-              {FACTS.map((fact, i) => (
-                <motion.div
-                  key={fact.label}
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.05 * i }}
-                  className="flex flex-wrap items-baseline gap-x-2 border-b border-edge/60 pb-3 last:border-none last:pb-0"
-                >
-                  <dt className="text-pulse">&quot;{fact.label}&quot;:</dt>
-                  <dd className="text-fog">&quot;{fact.value}&quot;</dd>
-                </motion.div>
-              ))}
-            </dl>
-          </div>
+    <section id="about" className="px-6 py-24 sm:px-10 lg:px-16">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading jp="概要" title="About" />
+        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-5 leading-relaxed text-cream/75"
+          >
+            <p>
+              I&apos;m <span className="text-cream">Arnav Kshirsagar</span>, a B.Tech Computer
+              Science and Engineering student in Pune with a growing focus on cybersecurity. I like
+              understanding how systems break, then building ones that don&apos;t.
+            </p>
+            <p>
+              I lead <span className="text-cream">Team HACKHORIZON_STR</span> as Team Leader at the
+              Smart India Hackathon, and I&apos;m interested in open-source networking and secure
+              systems.
+            </p>
+            <p>
+              I&apos;m now looking for an <span className="text-lime">internship in Japan</span>,
+              where I can learn from engineers who treat quality and reliability as a craft.
+            </p>
+          </motion.div>
 
           <motion.div
-            aria-hidden="true"
-            animate={{ opacity: [0.4, 0.9, 0.4] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-pulse/20 blur-2xl"
-          />
-        </motion.div>
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mc-panel relative p-6 sm:p-8"
+          >
+            <PixelTorii size={4} className="absolute right-5 top-5 text-shu" />
+            <p className="mb-5 font-display text-sm uppercase text-lime">
+              Player <span className="font-jp normal-case text-shu">プレイヤー</span>
+            </p>
+            <dl>
+              {PLAYER.map((row) => (
+                <div
+                  key={row.en}
+                  className="flex flex-col gap-1 border-b-2 border-stone/60 py-3 last:border-none sm:flex-row sm:items-baseline sm:gap-4"
+                >
+                  <dt className="w-28 shrink-0">
+                    <span className="font-jp text-shu">{row.jp}</span>{" "}
+                    <span className="text-xs text-cream/50">{row.en}</span>
+                  </dt>
+                  <dd className="text-sm text-cream">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
