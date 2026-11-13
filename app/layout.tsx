@@ -16,7 +16,7 @@ const body = JetBrains_Mono({
 });
 
 const jp = DotGothic16({
-  subsets: ["latin", "japanese"],
+  subsets: ["latin"],
   weight: "400",
   variable: "--font-jp",
   display: "swap",
