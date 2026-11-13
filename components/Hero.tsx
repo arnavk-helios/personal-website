@@ -1,108 +1,125 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import NetworkBackground from "./NetworkBackground";
+import PixelBackground from "./PixelBackground";
 import TypingText from "./TypingText";
 import MagneticButton from "./MagneticButton";
 
-const Hero: React.FC = () => {
+const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
+const item = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+export default function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-28 pb-16 sm:px-10 lg:px-16">
+    <section
+      id="top"
+      className="relative flex min-h-screen items-center overflow-hidden px-6 pb-32 pt-20 sm:px-10 lg:px-16"
+    >
       <div className="absolute inset-0">
-        <NetworkBackground />
-        <div className="absolute inset-0 grid-fade" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink/40 to-ink" />
+        <PixelBackground />
+        <div className="pixel-grid absolute inset-0 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_30%,black_40%,transparent_100%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col-reverse items-center gap-14 lg:flex-row lg:items-center lg:justify-between">
-        {/* Text column */}
-        <div className="flex-1 text-center lg:text-left">
+      <p
+        aria-hidden="true"
+        className="vertical-jp absolute right-6 top-1/4 hidden font-jp text-sm tracking-[0.5em] text-cream/40 lg:block"
+      >
+        サイバーセキュリティ
+      </p>
+
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-16 lg:grid-cols-[1.25fr_0.75fr]">
+        <motion.div variants={container} initial="hidden" animate="show">
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-edge bg-surface/60 px-4 py-1.5 font-mono text-xs uppercase tracking-wider text-muted backdrop-blur"
+            variants={item}
+            className="inline-flex items-center gap-3 border-2 border-cream/40 bg-panel px-3 py-2 font-display text-[11px] uppercase"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
-            </span>
-            Available for collaborations
+            <span className="h-2 w-2 animate-blink bg-lime" />
+            <span className="font-jp normal-case text-shu">インターンシップ希望</span>
+            <span className="text-cream/50">·</span>
+            Open to internships in Japan
+          </motion.p>
+
+          <motion.p variants={item} className="mt-6 font-jp text-lg text-sakura">
+            こんにちは、アルナヴです。
           </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl font-bold tracking-tight text-text sm:text-6xl lg:text-7xl"
+            variants={item}
+            className="mt-3 font-display text-[clamp(2.4rem,8vw,4.75rem)] uppercase leading-[0.95] text-cream [text-shadow:4px_4px_0_#141414]"
           >
-            Hi, I&apos;m <span className="text-accent">Arnav</span>
+            Arnav
+            <br />
+            <span className="text-lime">Kshirsagar</span>
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-4 h-12 text-xl font-medium text-muted sm:text-2xl"
-          >
+          <motion.div variants={item} className="mt-5 h-8 font-body text-lg text-lime sm:text-xl">
+            <span className="text-cream/50">&gt; whoami: </span>
             <TypingText />
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
-          >
-            B.Tech Computer Science student specializing in secure systems,
-            Python development, and exploring modern AI architectures.
+          <motion.p variants={item} className="mt-5 max-w-xl leading-relaxed text-cream/70">
+            Cybersecurity student in Pune building secure systems, leading tech-club outreach, and
+            working on AI-driven threat forecasting. Looking for a hands-on internship in Japan.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
+            variants={item}
+            className="mt-9 flex flex-col items-start gap-6 sm:flex-row sm:items-center"
           >
-            {/* The variants have been removed here to fix the error */}
             <MagneticButton href="#projects">
-              View Work
+              View my work
+              <span aria-hidden="true">→</span>
             </MagneticButton>
-            <MagneticButton href="#contact">
-              Get in Touch
-            </MagneticButton>
+            <a
+              href="/ArnavKshirsagarResume.pdf"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-sm text-cream underline decoration-stone decoration-2 underline-offset-4 transition-colors hover:text-lime"
+            >
+              Resume (PDF) ↗
+            </a>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Floating Avatar */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative flex items-center justify-center"
+          transition={{ duration: 0.7 }}
+          className="relative mx-auto"
         >
+          <div
+            aria-hidden="true"
+            className="pixel-circle absolute -right-8 -top-8 h-48 w-48 bg-shu sm:h-64 sm:w-64"
+          />
           <motion.div
-            animate={{ y: [-8, 8, -8] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative h-64 w-64 rounded-full border border-edge bg-surface/80 p-2 shadow-2xl backdrop-blur sm:h-80 sm:w-80"
+            animate={{ y: [0, -14, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative h-56 w-56 drop-shadow-[8px_8px_0_#141414] sm:h-72 sm:w-72"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-full border border-edge/60 bg-surface">
-              <Image
-  src="/arnavkshirsagar.jpeg"
-  alt="Arnav Kshirsagar"
-  fill
-  sizes="(min-width: 640px) 288px, 224px"
-  className="object-cover"
-  priority
-/>
+            <div className="pixel-clip h-full w-full bg-cream p-1.5">
+              <div className="pixel-clip-sm relative h-full w-full overflow-hidden">
+                <Image
+                  src="/arnavkshirsagar.jpeg"
+                  alt="Arnav Kshirsagar"
+                  fill
+                  sizes="(min-width: 640px) 288px, 224px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-4 -left-4 flex h-14 w-14 -rotate-6 items-center justify-center border-4 border-shu bg-coal font-jp text-3xl text-shu"
+            >
+              守
             </div>
           </motion.div>
         </motion.div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
