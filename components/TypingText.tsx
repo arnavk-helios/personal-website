@@ -58,7 +58,7 @@ export default function TypingText() {
       <span>{text}</span>
       <span
         aria-hidden="true"
-        className="ml-1 inline-block h-[0.9em] w-[2px] translate-y-[0.05em] animate-blink bg-signal"
+        className="ml-1 inline-block h-[0.9em] w-[2px] translate-y-[0.05em] animate-blink bg-lime"
       />
     </span>
   );
