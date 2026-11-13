@@ -1,24 +1,32 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Silkscreen, JetBrains_Mono, DotGothic16 } from "next/font/google";
 import "./globals.css";
 
-const sans = Inter({
+const display = Silkscreen({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: ["400", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
-const mono = JetBrains_Mono({
+const body = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-body",
   display: "swap",
-  weight: ["400", "500", "700"],
+});
+
+const jp = DotGothic16({
+  subsets: ["latin", "japanese"],
+  weight: "400",
+  variable: "--font-jp",
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
-  title: "Arnav Kshirsagar — B.Tech CS Student & Cybersecurity Enthusiast",
+  title: "Arnav Kshirsagar — Cybersecurity Student | サイバーセキュリティ",
   description:
-    "Portfolio of Arnav Kshirsagar — B.Tech Computer Science and Engineering student, Team Leader at Smart India Hackathon (HACKHORIZON_STR), and builder in secure systems, networking, and AI.",
+    "Portfolio of Arnav Kshirsagar, a B.Tech Computer Science student in Pune focused on cybersecurity, seeking an internship in Japan.",
 };
 
 export default function RootLayout({
@@ -27,8 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
-      <body className="font-sans bg-ink text-fog antialiased">{children}</body>
+    <html lang="en" className={`${display.variable} ${body.variable} ${jp.variable}`}>
+      <body className="bg-coal font-body text-cream antialiased">{children}</body>
     </html>
   );
 }
